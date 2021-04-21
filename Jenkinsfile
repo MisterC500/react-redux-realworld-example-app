@@ -3,9 +3,10 @@ pipeline{
     stages{
         stage("Build Front-end"){
             steps{
-                echo "========executing A========"
+                sh 'docker build -t test .' 
             }
-           }
-           
+        }
+
     }
+
 }
