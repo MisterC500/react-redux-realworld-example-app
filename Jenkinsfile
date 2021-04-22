@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage("Build Front-end"){
             steps{
-                sh 'docker build -t test .' 
+                sh 'docker build -t "${Username}"/realworld_frontend .' 
             }
         }
 
