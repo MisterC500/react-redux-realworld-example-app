@@ -12,9 +12,11 @@ pipeline{
             }
         }
 
-        stage("Deploy to Docker Hub"){
-            sh 'docker login --username="${Username}" --password="${Password}"'
-            sh 'docker push test' 
+        stage("Deploy"){
+            steps{
+                sh 'docker login --username="${Username}" --password="${Password}"'
+                sh 'docker push test' 
+            }
         }
 
     }
