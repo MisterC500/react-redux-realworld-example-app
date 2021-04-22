@@ -1,8 +1,8 @@
 pipeline{
     agent any
     parameters{
-        password(name: "Username", default: 'SECRET')
-        password(name: "Password", default: 'SECRET')
+        password(name: "Username", defaultValue: 'SECRET')
+        password(name: "Password", defaultValue: 'SECRET')
 
     }
     stages{
