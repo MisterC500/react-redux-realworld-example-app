@@ -14,7 +14,7 @@ pipeline{
 
         stage("Deploy to Docker Hub"){
             sh 'docker login --username="${Username}" --password="${Password}"'
-            sh 'docker push test'
+            sh 'docker push test' 
         }
 
     }
