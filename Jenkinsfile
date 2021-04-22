@@ -15,7 +15,7 @@ pipeline{
         stage("Deploy"){
             steps{
                 sh 'docker login --username="${Username}" --password="${Password}"'
-                sh 'docker push test' 
+                sh 'sudo docker push test' 
             }
         }
 
