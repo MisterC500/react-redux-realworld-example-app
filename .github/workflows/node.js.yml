@@ -3,6 +3,10 @@
 
 name: Node.js CI
 
+env:
+  REGISTRY: ghcr.io/misterc500
+  IMAGE_NAME: realworld_frontend
+  
 on:
   push:
     branches: [ master ]
@@ -28,18 +32,17 @@ jobs:
     - name: Docker Login
       uses: docker/login-action@v1.10.0
       with:
-        registry: ghcr.io/misterc500
+        registry: ${{ env.REGISTRY }}
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Extract metadata (tags, labels) for Docker
       id: meta
       uses: docker/metadata-action@v1
       with:
-        images: ${{ ghcr.io/misterc500 }}/${{ misterc500/realworld_frontend }}
+        images: ${{ env.REGISTRY}}/${{ env.IMAGE_NAME }}
     - name: Build and push
       uses: docker/build-push-action@v2.6.1
       with:
-        context: .
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
