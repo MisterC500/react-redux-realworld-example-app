@@ -28,8 +28,7 @@ jobs:
     - name: Build and push docker image
       uses: docker/build-push-action@v1
       with:
-        repository: misterc500/realworld_frontend
         registry: ghcr.io
-        username: "MisterC500"
+        username: MisterC500
         password: ${{ secrets.PAT }}
         tags: latest
