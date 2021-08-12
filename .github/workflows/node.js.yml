@@ -31,10 +31,16 @@ jobs:
         registry: ghcr.io/misterc500
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v1
+      with:
+        images: ${{ ghcr.io/misterc500 }}/${{ misterc500/realworld_frontend }}
     - name: Build and push
       uses: docker/build-push-action@v2.6.1
       with:
         context: .
         push: true
-        tags: misterc500/realworld_frontend
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
 
