@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Build and push docker image
-      uses: docker/build-push-action@v1
+      uses: docker/build-push-action@v2
       with:
         registry: ghcr.io
         username: MisterC500
