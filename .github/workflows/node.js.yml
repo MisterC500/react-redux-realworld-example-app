@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm install
     - name: Build and push docker image
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
