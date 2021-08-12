@@ -34,5 +34,5 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v2
       with:
-        push: true
         tags: misterc500/realworld_frontend:v1.6.1
+        push: true
